@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>User Management</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <header>
+
+        <h1>User Management</h1>
+
+        <div>
+
+            <a href="dashboard.html" class="btn">
+                Dashboard
+            </a>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Name</th>
+
+            <th>Email</th>
+
+            <th>Role</th>
+
+            <th>Status</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr>
+
+            <td>1</td>
+
+            <td>Administrator</td>
+
+            <td>admin@devops.com</td>
+
+            <td>ADMIN</td>
+
+            <td>ACTIVE</td>
+
+        </tr>
+
+        <tr>
+
+            <td>2</td>
+
+            <td>John Doe</td>
+
+            <td>john@example.com</td>
+
+            <td>USER</td>
+
+            <td>ACTIVE</td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Manage Products</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <header>
+
+        <h1>Product Management</h1>
+
+        <div>
+
+            <a href="dashboard.html" class="btn">Dashboard</a>
+
+            <button onclick="logout()">Logout</button>
+
+        </div>
+
+    </header>
+
+    <div class="product-form">
+
+        <h2>Add Product</h2>
+
+        <form id="productForm">
+
+            <input
+                    type="text"
+                    id="name"
+                    placeholder="Product Name"
+                    required>
+
+            <input
+                    type="text"
+                    id="description"
+                    placeholder="Description">
+
+            <input
+                    type="text"
+                    id="category"
+                    placeholder="Category"
+                    required>
+
+            <input
+                    type="number"
+                    id="price"
+                    placeholder="Price"
+                    required>
+
+            <input
+                    type="text"
+                    id="imageUrl"
+                    placeholder="Image URL">
+
+            <input
+                    type="number"
+                    id="quantity"
+                    placeholder="Quantity"
+                    required>
+
+            <button type="submit">
+
+                Save Product
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <br>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Name</th>
+
+            <th>Category</th>
+
+            <th>Price</th>
+
+            <th>Quantity</th>
+
+            <th>Action</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody id="productTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/products.js"></script></body>
+
+</html>

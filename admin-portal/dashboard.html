@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <header>
+
+        <h1>DevOps Learning Project</h1>
+
+        <button onclick="logout()">Logout</button>
+
+    </header>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Total Products</h3>
+
+            <h2 id="products">0</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Total Users</h3>
+
+            <h2 id="users">0</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Backend Service</h3>
+
+            <h2 id="backendStatus">Checking...</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Auth Service</h3>
+
+            <h2 id="authStatus">Checking...</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Redis</h3>
+
+            <h2 id="redisStatus">Connected</h2>
+
+        </div>
+
+        <div class="card">
+
+            <h3>MySQL</h3>
+
+            <h2 id="mysqlStatus">Connected</h2>
+
+        </div>
+
+    </div>
+
+    <div class="menu">
+
+        <a href="products.html" class="btn">
+
+            Manage Products
+
+        </a>
+
+        <a href="users.html" class="btn">
+
+            Manage Users
+
+        </a>
+
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
