@@ -2,7 +2,7 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY target/backend-service-1.0.0.jar app.jar
+COPY target/*.jar app.jar
 
 EXPOSE 8082
 
