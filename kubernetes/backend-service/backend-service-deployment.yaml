@@ -1,0 +1,130 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: backend-service
+  namespace: devops-project
+  labels:
+    app: backend-service
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: backend-service
+
+  template:
+
+    metadata:
+      labels:
+        app: backend-service
+
+    spec:
+
+      containers:
+
+      - name: backend-service
+
+        image: YOUR_DOCKERHUB_USERNAME/backend-service:v1
+
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 8082
+
+        env:
+
+        - name: MYSQL_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MYSQL_HOST
+
+        - name: MYSQL_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MYSQL_PORT
+
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MYSQL_DATABASE
+
+        - name: MYSQL_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: MYSQL_USERNAME
+
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: MYSQL_PASSWORD
+
+        - name: REDIS_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: REDIS_HOST
+
+        - name: REDIS_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: REDIS_PORT
+
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: JWT_SECRET
+
+        - name: JWT_EXPIRATION
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: JWT_EXPIRATION
+
+        - name: AUTH_SERVICE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: AUTH_SERVICE_URL
+            
+        resources:
+
+           requests:
+              cpu: "250m"
+              memory: "512Mi"
+
+           limits:
+              cpu: "500m"
+              memory: "1Gi"
+
+           readinessProbe:
+
+              httpGet:
+                path: /actuator/health
+                port: 8082
+
+          initialDelaySeconds: 30
+
+          periodSeconds: 10
+
+          timeoutSeconds: 5
+
+        livenessProbe:
+
+          httpGet:
+            path: /actuator/health
+            port: 8082
+
+          initialDelaySeconds: 60
+
+          periodSeconds: 20
+
+          timeoutSeconds: 5

@@ -4,19 +4,18 @@ server:
 spring:
 
   datasource:
-    url: jdbc:mysql://mysql:3306/devopsdb
-    username: root
-    password: root123
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
 
   jpa:
     hibernate:
       ddl-auto: update
-
     show-sql: true
 
   redis:
-    host: redis
-    port: 6379
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
 
 management:
   endpoints:
@@ -25,8 +24,8 @@ management:
         include: "*"
 
 jwt:
-  secret: DevOpsLearningProjectSecretKey12345678901234567890
-  expiration: 86400000
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
 
 auth-service:
-  url: http://auth-service:8081
+  url: ${AUTH_SERVICE_URL}

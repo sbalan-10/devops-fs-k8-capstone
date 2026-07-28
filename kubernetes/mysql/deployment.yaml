@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mysql
+  namespace: devops-project
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: mysql
+
+  template:
+
+    metadata:
+      labels:
+        app: mysql
+
+    spec:
+
+      containers:
+
+      - name: mysql
+
+        image: mysql:8.4
+
+        imagePullPolicy: IfNotPresent
+
+        ports:
+        - containerPort: 3306
+
+        env:
+
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: MYSQL_DATABASE
+
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: MYSQL_PASSWORD
+
+        - name: MYSQL_ROOT_USER
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: MYSQL_USERNAME
+
+        volumeMounts:
+
+        - name: mysql-storage
+          mountPath: /var/lib/mysql
+
+        readinessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 20
+          periodSeconds: 10
+
+        livenessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 60
+          periodSeconds: 20
+
+      volumes:
+
+      - name: mysql-storage
+
+        persistentVolumeClaim:
+          claimName: mysql-pvc
