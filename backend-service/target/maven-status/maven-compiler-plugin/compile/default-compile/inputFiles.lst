@@ -1,0 +1,15 @@
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/BackendApplication.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/config/RedisConfig.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/config/SecurityConfig.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/controller/HealthController.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/controller/ProductController.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/controller/ProfileController.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/dto/ProductRequest.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/dto/ProductResponse.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/entity/Product.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/exception/GlobalExceptionHandler.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/repository/ProductRepository.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/security/JwtFilter.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/security/JwtUtil.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/service/ProductService.java
+/home/ubuntu/devops-fs-k8-capstone/backend-service/src/main/java/com/devops/backend/service/ProfileService.java
